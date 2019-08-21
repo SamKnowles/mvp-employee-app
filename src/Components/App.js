@@ -1,7 +1,7 @@
 import React from 'react'
 import EmployeeForm from './EmployeeForm'
+import '../Styles/style.css'
 
-import './app.css'
 
 function App(props) {
     return (

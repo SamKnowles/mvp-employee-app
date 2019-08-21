@@ -12,7 +12,7 @@ employeeRoute.route('/')
     })
 
     .post((req, res) => {
-        let newEmployee = new Employee(req.body);
+        let newEmployee = new Employees(req.body);
         newEmployee.save((err) => {
             if (err) return res.status(500).send(err);
             return res.send(newEmployee);

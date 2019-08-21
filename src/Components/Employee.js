@@ -41,12 +41,12 @@ export default function Employee(props) {
     return (
         isEditing ?
             <div>
-                <form action="">
-                    <input type="text" onChange={handleChange} name='employeeId' value={employeeId} />
-                    <input type="text" onChange={handleChange} name='firstName' value={firstName} />
-                    <input type="text" onChange={handleChange} name='lastName' value={lastName} />
-                    <input type="text" onChange={handleChange} name='emailAddress' value={emailAddress} />
-                    <input type="text" onChange={handleChange} name='phoneNumber' value={phoneNumber} />
+                <form className='employee-information-wrapper'action="">
+                    <input  className='employee-information' type="text" onChange={handleChange} name='employeeId' value={employeeId} />
+                    <input  className='employee-information' type="text" onChange={handleChange} name='firstName' value={firstName} />
+                    <input  className='employee-information' type="text" onChange={handleChange} name='lastName' value={lastName} />
+                    <input  className='employee-information' type="text" onChange={handleChange} name='emailAddress' value={emailAddress} />
+                    <input  className='employee-information' type="text" onChange={handleChange} name='phoneNumber' value={phoneNumber} />
                     <button onClick={toggleEdit}>Cancel</button><button onClick={handleSubmit}>Submit</button>
                 </form>
             </div>
@@ -58,8 +58,8 @@ export default function Employee(props) {
                 <div className='employee-information'>{phoneNumber}</div>
                 <div className='employee-information'>{emailAddress}</div>
                 <div className='employee-information'>
-                    <button onClick={toggleEdit}>Edit</button>
-                    <button onClick={() => { removeEmployee(_id) }}>X</button>
+                    <button className='employee-button'onClick={toggleEdit}>Edit</button>
+                    <button className='employee-button'onClick={() => { removeEmployee(_id) }}>Delete</button>
                 </div>
             </div>
     )

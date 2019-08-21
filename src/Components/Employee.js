@@ -10,14 +10,14 @@ export default function Employee(props) {
         phoneNumber: props.phoneNumber || '',
         employeeId: props.employeeId || '',
     })
-    
+
 
     const handleChange = (e) => {
         let { name, value } = e.target;
         setInputs(prevState => {
             return {
-                    ...prevState,
-                    [name]: value
+                ...prevState,
+                [name]: value
             }
         });
     }
@@ -39,7 +39,7 @@ export default function Employee(props) {
     let { employeeId, firstName, lastName, emailAddress, phoneNumber } = inputs;
     let { removeEmployee, _id } = props;
     return (
-     isEditing ?
+        isEditing ?
             <div>
                 <form action="">
                     <input type="text" onChange={handleChange} name='employeeId' value={employeeId} />
@@ -51,14 +51,17 @@ export default function Employee(props) {
                 </form>
             </div>
             :
-            <div>
-                <h2>{`${firstName} ${lastName}`}</h2>
-                <h2>Employee Id: {employeeId}</h2>
-                <h2>Phone Number: {phoneNumber}</h2>
-                <h2>Email Address: {emailAddress}</h2>
-                <button onClick={toggleEdit}>Edit</button>
-                <button onClick={() => { removeEmployee(_id) }}>X</button>
+            <div className='employee-information-wrapper'>
+                <div className='employee-information'>{lastName}</div>
+                <div className='employee-information'>{firstName}</div>
+                <div className='employee-information'>{employeeId}</div>
+                <div className='employee-information'>{phoneNumber}</div>
+                <div className='employee-information'>{emailAddress}</div>
+                <div className='employee-information'>
+                    <button onClick={toggleEdit}>Edit</button>
+                    <button onClick={() => { removeEmployee(_id) }}>X</button>
+                </div>
             </div>
     )
-    
+
 }

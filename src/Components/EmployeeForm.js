@@ -49,6 +49,24 @@ export default class EmployeeForm extends Component {
             })
     }
 
+    editEmployee = (_id, updatedEmployee) => {
+        let { employees } = this.state;
+        let newEmployees = employees;
+        axios.put(employeeUrl + '/' + _id, updatedEmployee)
+            .then(response => {
+                for (let i = 0; i < newEmployees.length; i++) {
+                    if (newEmployees[i]._id === _id) {
+                        newEmployees[i] = Object.assign(newEmployees[i], updatedEmployee);
+                        updatedEmployee = newEmployees[i];
+                        this.setState({
+                            employees: newEmployees
+                        })
+                    }
+                }
+            })
+
+    }
+
     getEmployees = () => {
         axios.get(employeeUrl)
             .then(response => {

@@ -16,7 +16,7 @@ export default class Employee extends Component {
         }
     }
 
-    handleChange = () => {
+    handleChange = (e) => {
         let { name, value } = e.target;
         this.setState(prevState => {
             return {
@@ -26,9 +26,9 @@ export default class Employee extends Component {
                 }
             }
         });
-    } 
+    }
 
-    handleSubmit = () => {
+    handleSubmit = (e) => {
         e.preventDefault();
         let updatedEmployee = this.state.inputs;
         let id = this.props._id;
@@ -46,26 +46,26 @@ export default class Employee extends Component {
         let { employeeId, firstName, lastName, emailAddress, phoneNumber } = this.state.inputs;
         let { removeEmployee, _id } = this.props;
         return (
-            this.state.isEditing? 
-            <div>
-                <form action="">
-                    <input type="text" onChange={this.handleChange} name='employeeId' value={employeeId}/>
-                    <input type="text" onChange={this.handleChange} name='firstName' value={firstName}/>
-                    <input type="text" onChange={this.handleChange} name='lastName' value={lastName}/>
-                    <input type="text" onChange={this.handleChange} name='emailAddress' value={emailAddress}/>
-                    <input type="text" onChange={this.handleChange} name='phoneNumber' value={phoneNumber}/>
-                    <button onClick={this.toggleEdit}>Cancel</button><button onClick={this.handleSubmit}>Submit</button>
-                </form>
-            </div>
-            :
-            <div>
-                <h2>{`${firstName} ${lastName}`}</h2>
-                <h2>Employee Id: {employeeId}</h2>
-                <h2>Phone Number: {phoneNumber}</h2>
-                <h2>Email Address: {emailAddress}</h2>
-                <button onClick={this.toggleEdit}>Edit</button>
-                <button onClick={() => {removeEmployee(_id) }}>X</button>
-            </div>
+            this.state.isEditing ?
+                <div>
+                    <form action="">
+                        <input type="text" onChange={this.handleChange} name='employeeId' value={employeeId} />
+                        <input type="text" onChange={this.handleChange} name='firstName' value={firstName} />
+                        <input type="text" onChange={this.handleChange} name='lastName' value={lastName} />
+                        <input type="text" onChange={this.handleChange} name='emailAddress' value={emailAddress} />
+                        <input type="text" onChange={this.handleChange} name='phoneNumber' value={phoneNumber} />
+                        <button onClick={this.toggleEdit}>Cancel</button><button onClick={this.handleSubmit}>Submit</button>
+                    </form>
+                </div>
+                :
+                <div>
+                    <h2>{`${firstName} ${lastName}`}</h2>
+                    <h2>Employee Id: {employeeId}</h2>
+                    <h2>Phone Number: {phoneNumber}</h2>
+                    <h2>Email Address: {emailAddress}</h2>
+                    <button onClick={this.toggleEdit}>Edit</button>
+                    <button onClick={() => { removeEmployee(_id) }}>X</button>
+                </div>
         )
     }
 }

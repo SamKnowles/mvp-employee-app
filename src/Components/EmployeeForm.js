@@ -22,7 +22,7 @@ export default class EmployeeForm extends Component {
 
     componentDidMount = () => {
         axios.get(employeeUrl)
-            .then(resonse => {
+            .then(response => {
                 this.setState({
                     employees: response.data,
                     loading: false
@@ -61,7 +61,7 @@ export default class EmployeeForm extends Component {
             });
     }
 
-    handleChange = () => {
+    handleChange = (e) => {
         let { name, value } = e.target;
         this.setState(prevState => {
             return {
@@ -73,7 +73,7 @@ export default class EmployeeForm extends Component {
         });
     }
 
-    handleSubmit = () => {
+    handleSubmit = (e) => {
         let employee = this.state.inputs;
         e.preventDefault();
         axios.post(employeeUrl, employee)
@@ -108,13 +108,14 @@ export default class EmployeeForm extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input onChange={this.handleChange} name='firstName' value={firstName} type="text" placeholder='First Name'/>
-                    <input onChange={this.handleChange} name='lastName' value={lastName} type="text" placeholder='Last Name'/>
-                    <input onChange={this.handleChange} name='emailAddress' value={emailAddress} type="text" placeholder='Email Address'/>
-                    <input onChange={this.handleChange} name='phoneNumber' value={phoneNumber} type="text" placeholder='Phone Nubmber'/>
-                    <input onChange={this.handleChange} name='employeeId' value={employeeId} type="text" placeholder='Employee Id'/>
+                    <input onChange={this.handleChange} name='firstName' value={firstName} type="text" placeholder='First Name' />
+                    <input onChange={this.handleChange} name='lastName' value={lastName} type="text" placeholder='Last Name' />
+                    <input onChange={this.handleChange} name='emailAddress' value={emailAddress} type="text" placeholder='Email Address' />
+                    <input onChange={this.handleChange} name='phoneNumber' value={phoneNumber} type="text" placeholder='Phone Nubmber' />
+                    <input onChange={this.handleChange} name='employeeId' value={employeeId} type="text" placeholder='Employee Id' />
+                    <button onClick={this.handleSubmit}>SUBMIT</button>
                 </form>
-                <EmployeeList loading={loading} employees={employees} removeEmployee={this.removeEmployee} editEmployee={this.editEmployee} />
+                <EmployeeList className='test' loading={loading} employees={employees} removeEmployee={this.removeEmployee} editEmployee={this.editEmployee} />
             </div>
         )
     }

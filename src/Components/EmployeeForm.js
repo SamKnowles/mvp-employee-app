@@ -105,21 +105,23 @@ export default function EmployeeForm(props) {
         <div>
             <div className='employee-form-section-wrapper'>
                 <div className='title-wrapper'>mvp-employee-app</div>
-                <div className='new-employee-form-tags-wrapper'>
-                    <div className='employee-form-tag'>First Name</div>
-                    <div className='employee-form-tag'>Last Name</div>
-                    <div className='employee-form-tag'>Email Address</div>
-                    <div className='employee-form-tag'>Phone Number</div>
-                    <div className='employee-form-tag'>Employee Id</div>
+                <div className='tag-inputs-button-form-wrapper'>
+                    <div className='new-employee-form-tags-wrapper'>
+                        <div className='employee-form-tag'>First Name:</div>
+                        <div className='employee-form-tag'>Last Name:</div>
+                        <div className='employee-form-tag'>Email Address:</div>
+                        <div className='employee-form-tag'>Phone Number:</div>
+                        <div className='employee-form-tag'>Employee Id:</div>
+                    </div>
+                    <form className='new-employee-form-wrapper' onSubmit={handleSubmit}>
+                        <input onChange={handleChange} name='firstName' value={firstName} type="text" placeholder='' />
+                        <input onChange={handleChange} name='lastName' value={lastName} type="text" placeholder='' />
+                        <input onChange={handleChange} name='emailAddress' value={emailAddress} type="text" placeholder='' />
+                        <input onChange={handleChange} name='phoneNumber' value={phoneNumber} type="text" placeholder='' />
+                        <input onChange={handleChange} name='employeeId' value={employeeId} type="text" placeholder='' />
+                    </form>
+                    <button className='add-employee-button' onClick={handleSubmit}>Add Employee</button>
                 </div>
-                <form className='new-employee-form-wrapper' onSubmit={handleSubmit}>
-                    <input onChange={handleChange} name='firstName' value={firstName} type="text" placeholder='First Name' />
-                    <input onChange={handleChange} name='lastName' value={lastName} type="text" placeholder='Last Name' />
-                    <input onChange={handleChange} name='emailAddress' value={emailAddress} type="text" placeholder='Email Address' />
-                    <input onChange={handleChange} name='phoneNumber' value={phoneNumber} type="text" placeholder='Phone Nubmber' />
-                    <input onChange={handleChange} name='employeeId' value={employeeId} type="text" placeholder='Employee Id' />
-                </form>
-                <button className='add-employee-button' onClick={handleSubmit}>Add Employee</button>
             </div>
             <EmployeeList className='test' loading={loading} employees={employees} removeEmployee={removeEmployee} editEmployee={editEmployee} />
         </div>

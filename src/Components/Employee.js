@@ -41,25 +41,27 @@ export default function Employee(props) {
     return (
         isEditing ?
             <div>
-                <form className='employee-information-wrapper'action="">
-                    <input  className='employee-information' type="text" onChange={handleChange} name='employeeId' value={employeeId} />
-                    <input  className='employee-information' type="text" onChange={handleChange} name='firstName' value={firstName} />
-                    <input  className='employee-information' type="text" onChange={handleChange} name='lastName' value={lastName} />
-                    <input  className='employee-information' type="text" onChange={handleChange} name='emailAddress' value={emailAddress} />
-                    <input  className='employee-information' type="text" onChange={handleChange} name='phoneNumber' value={phoneNumber} />
-                    <button onClick={toggleEdit}>Cancel</button><button onClick={handleSubmit}>Submit</button>
+                <form className='employee-information-wrapper' action="">
+                    <input className='employee-information' type="text" onChange={handleChange} name='employeeId' value={employeeId} />
+                    <input className='employee-information' type="text" onChange={handleChange} name='firstName' value={firstName} />
+                    <input className='employee-information' type="text" onChange={handleChange} name='lastName' value={lastName} />
+                    <input className='employee-information' type="text" onChange={handleChange} name='emailAddress' value={emailAddress} />
+                    <input className='employee-information' type="text" onChange={handleChange} name='phoneNumber' value={phoneNumber} />
+                    <div className='employee-information'>
+                        <button className='employee-buttons' onClick={toggleEdit}>Cancel</button><button className='employee-buttons' onClick={handleSubmit}>Submit</button>
+                    </div>
                 </form>
             </div>
             :
             <div className='employee-information-wrapper'>
+            <div className='employee-information'>{employeeId}</div>
+            <div className='employee-information'>{firstName}</div>
                 <div className='employee-information'>{lastName}</div>
-                <div className='employee-information'>{firstName}</div>
-                <div className='employee-information'>{employeeId}</div>
                 <div className='employee-information'>{phoneNumber}</div>
                 <div className='employee-information'>{emailAddress}</div>
                 <div className='employee-information'>
-                    <button className='employee-button'onClick={toggleEdit}>Edit</button>
-                    <button className='employee-button'onClick={() => { removeEmployee(_id) }}>Delete</button>
+                    <button className='employee-buttons' onClick={toggleEdit}>Edit</button>
+                    <button className='employee-buttons' onClick={() => { removeEmployee(_id) }}>Delete</button>
                 </div>
             </div>
     )

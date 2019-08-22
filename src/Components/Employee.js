@@ -42,7 +42,7 @@ export default function Employee(props) {
         isEditing ?
             <div>
                 <form className='employee-information-wrapper' action="">
-                    <input className='employee-information id-indent' type="text" onChange={handleChange} name='employeeId' value={employeeId} />
+                    <input className='employee-information' type="text" onChange={handleChange} name='employeeId' value={employeeId} />
                     <input className='employee-information' type="text" onChange={handleChange} name='firstName' value={firstName} />
                     <input className='employee-information' type="text" onChange={handleChange} name='lastName' value={lastName} />
                     <input className='employee-information' type="text" onChange={handleChange} name='phoneNumber' value={phoneNumber} />
@@ -54,7 +54,7 @@ export default function Employee(props) {
             </div>
             :
             <div className='employee-information-wrapper'>
-            <div className='employee-information id-indent'>{employeeId}</div>
+            <div className='employee-information'>{employeeId}</div>
             <div className='employee-information'>{firstName}</div>
                 <div className='employee-information'>{lastName}</div>
                 <div className='employee-information'>{phoneNumber}</div>
